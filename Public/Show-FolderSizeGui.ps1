@@ -1,4 +1,4 @@
-﻿function Show-FolderSizeGui {
+function Show-FolderSizeGui {
 <#
 .SYNOPSIS
     Oeffnet die grafische Oberflaeche von PSFolderReport.
@@ -6,7 +6,14 @@
     Zeigt ein WinForms-Fenster mit TreeView (Ordnerhierarchie) und ListView
     (Detailansicht mit Groesse, Anteil, Dateianzahl). Ein Scan-Button startet
     die Analyse; Toolbar-Buttons exportieren Ergebnisse als CSV oder HTML.
-    Farbcodierung: Rot >= 1 GB, Gelb >= 100 MB, Weiss fuer kleinere Eintraege.
+
+    Farbcodierung (identisch zu Show-FolderTree):
+      Dunkelgruen   = kleiner 100 MB, vollstaendig lesbar
+      Dunkelgelb    = ab 100 MB, vollstaendig lesbar
+      Dunkelrot     = ab 1 GB, vollstaendig lesbar
+      Rot + Text    = vollstaendig nicht zugaenglich ([Kein Zugriff])
+      Cyan          = Wurzelverzeichnis (Root-Node)
+
     Erfordert Windows mit .NET/WinForms.
 .PARAMETER StartPath
     Startverzeichnis fuer den Pfad-Eingabefeld (Standard: Benutzerprofilordner).
@@ -117,10 +124,10 @@
     $listView.GridLines     = $true
     $listView.BackColor     = [System.Drawing.Color]::White
 
-    $colName     = [System.Windows.Forms.ColumnHeader]::new(); $colName.Text     = 'Name';     $colName.Width     = 260
-    $colSize     = [System.Windows.Forms.ColumnHeader]::new(); $colSize.Text     = 'Groesse';  $colSize.Width     = 110
-    $colPercent  = [System.Windows.Forms.ColumnHeader]::new(); $colPercent.Text  = 'Anteil';   $colPercent.Width  = 70
-    $colFiles    = [System.Windows.Forms.ColumnHeader]::new(); $colFiles.Text    = 'Dateien';  $colFiles.Width    = 70
+    $colName     = [System.Windows.Forms.ColumnHeader]::new(); $colName.Text     = 'Name';      $colName.Width     = 280
+    $colSize     = [System.Windows.Forms.ColumnHeader]::new(); $colSize.Text     = 'Groesse';   $colSize.Width     = 110
+    $colPercent  = [System.Windows.Forms.ColumnHeader]::new(); $colPercent.Text  = 'Anteil';    $colPercent.Width  = 70
+    $colFiles    = [System.Windows.Forms.ColumnHeader]::new(); $colFiles.Text    = 'Dateien';   $colFiles.Width    = 70
     $colModified = [System.Windows.Forms.ColumnHeader]::new(); $colModified.Text = 'Geaendert'; $colModified.Width = 110
     $listView.Columns.AddRange([System.Windows.Forms.ColumnHeader[]]@($colName, $colSize, $colPercent, $colFiles, $colModified))
     $splitContainer.Panel2.Controls.Add($listView)
@@ -132,6 +139,13 @@
 
     # ─────────────────────────────────────────────────────────────────────────
     # Hilfsfunktion: ListView und TreeView aus Scan-Ergebnissen befuellen
+    #
+    # Farbschema (analog zu Show-FolderTree / CLI):
+    #   DarkCyan      – Root-Node (Startverzeichnis)
+    #   DarkGreen     – vollstaendig lesbar, kleiner 100 MB
+    #   DarkGoldenrod – vollstaendig lesbar, ab 100 MB
+    #   DarkRed       – vollstaendig lesbar, ab 1 GB
+    #   Red           – nicht zugaenglich, [Kein Zugriff] im Namen
     # ─────────────────────────────────────────────────────────────────────────
     $populateViews = {
         param ([array] $ScanResults, [string] $RootPath)
@@ -139,21 +153,52 @@
         $treeView.Nodes.Clear()
         $listView.Items.Clear()
 
+        # Split-Path gibt fuer Laufwerkswurzeln (z.B. 'F:\') einen leeren String zurueck
         $rootNodeLabel = Split-Path -Path $RootPath -Leaf
-        $rootNode      = [System.Windows.Forms.TreeNode]::new($rootNodeLabel)
+        if ([string]::IsNullOrEmpty($rootNodeLabel)) { $rootNodeLabel = $RootPath }
+
+        $rootNode           = [System.Windows.Forms.TreeNode]::new($rootNodeLabel)
+        $rootNode.ForeColor = [System.Drawing.Color]::DarkCyan
 
         foreach ($scanResult in $ScanResults) {
-            $treeNode     = [System.Windows.Forms.TreeNode]::new($scanResult.Name)
-            $treeNode.Tag = $scanResult
-            $rootNode.Nodes.Add($treeNode) | Out-Null
 
-            $listItem = [System.Windows.Forms.ListViewItem]::new($scanResult.Name)
-            if ($null -ne $scanResult.LastModified) {
-                $lastModifiedText = $scanResult.LastModified.ToString('dd.MM.yyyy')
+            # ── TreeView: Name + Groesse + Farbe ──────────────────────────────
+            if (-not $scanResult.IsAccessible) {
+                $nodeLabel = "$($scanResult.Name)  [Kein Zugriff]"
+                $nodeColor = [System.Drawing.Color]::Red
             }
             else {
-                $lastModifiedText = ''
+                $nodeLabel = "$($scanResult.Name)  [$($scanResult.SizeFormatted)]"
+                if ($scanResult.SizeBytes -ge 1GB) {
+                    $nodeColor = [System.Drawing.Color]::DarkRed
+                }
+                elseif ($scanResult.SizeBytes -ge 100MB) {
+                    $nodeColor = [System.Drawing.Color]::DarkGoldenrod
+                }
+                else {
+                    $nodeColor = [System.Drawing.Color]::DarkGreen
+                }
             }
+
+            $treeNode           = [System.Windows.Forms.TreeNode]::new($nodeLabel)
+            $treeNode.ForeColor = $nodeColor
+            $treeNode.Tag       = $scanResult
+            $rootNode.Nodes.Add($treeNode) | Out-Null
+
+            # ── ListView: Name (mit Zugriffsmarkierung) ───────────────────────
+            $displayName = if (-not $scanResult.IsAccessible) {
+                "$($scanResult.Name)  [Kein Zugriff]"
+            }
+            else {
+                $scanResult.Name
+            }
+
+            $listItem = [System.Windows.Forms.ListViewItem]::new($displayName)
+
+            $lastModifiedText = if ($null -ne $scanResult.LastModified) {
+                $scanResult.LastModified.ToString('dd.MM.yyyy')
+            }
+            else { '' }
 
             $listItem.SubItems.AddRange([string[]]@(
                 $scanResult.SizeFormatted,
@@ -162,9 +207,23 @@
                 $lastModifiedText
             ))
 
-            $listItem.BackColor = [System.Drawing.Color]::White
-            if ($scanResult.SizeBytes -ge 100MB) { $listItem.BackColor = [System.Drawing.Color]::FromArgb(255, 248, 210) }
-            if ($scanResult.SizeBytes -ge 1GB)   { $listItem.BackColor = [System.Drawing.Color]::FromArgb(255, 220, 220) }
+            # ── ListView Farbcodierung ─────────────────────────────────────────
+            if (-not $scanResult.IsAccessible) {
+                $listItem.BackColor = [System.Drawing.Color]::FromArgb(255, 220, 220)
+                $listItem.ForeColor = [System.Drawing.Color]::DarkRed
+            }
+            elseif ($scanResult.SizeBytes -ge 1GB) {
+                $listItem.BackColor = [System.Drawing.Color]::FromArgb(255, 220, 220)
+                $listItem.ForeColor = [System.Drawing.Color]::DarkRed
+            }
+            elseif ($scanResult.SizeBytes -ge 100MB) {
+                $listItem.BackColor = [System.Drawing.Color]::FromArgb(255, 248, 210)
+                $listItem.ForeColor = [System.Drawing.Color]::FromArgb(130, 95, 0)
+            }
+            else {
+                $listItem.BackColor = [System.Drawing.Color]::White
+                $listItem.ForeColor = [System.Drawing.Color]::FromArgb(0, 110, 0)
+            }
 
             $listView.Items.Add($listItem) | Out-Null
         }
@@ -191,15 +250,10 @@
         $scanPath = $pathTextBox.Text.Trim()
 
         if (-not (Test-Path -LiteralPath $scanPath)) {
-            $messageParams = @{
-                Text    = "Pfad nicht gefunden:`n$scanPath"
-                Caption = 'Fehler'
-                Buttons = [System.Windows.Forms.MessageBoxButtons]::OK
-                Icon    = [System.Windows.Forms.MessageBoxIcon]::Error
-            }
             [System.Windows.Forms.MessageBox]::Show(
-                $messageParams.Text, $messageParams.Caption,
-                $messageParams.Buttons, $messageParams.Icon
+                "Pfad nicht gefunden:`n$scanPath", 'Fehler',
+                [System.Windows.Forms.MessageBoxButtons]::OK,
+                [System.Windows.Forms.MessageBoxIcon]::Error
             ) | Out-Null
             return
         }
@@ -208,16 +262,24 @@
         $progressBar.Visible = $true
         $mainForm.Refresh()
 
-        $scanResults               = Get-FolderSize -Path $scanPath
-        $script:currentScanResults = $scanResults
+        try {
+            $scanResults               = Get-FolderSize -Path $scanPath
+            $script:currentScanResults = $scanResults
 
-        & $populateViews -ScanResults $scanResults -RootPath $scanPath
+            & $populateViews -ScanResults $scanResults -RootPath $scanPath
 
-        $totalSizeSum   = ($scanResults | Measure-Object -Property SizeBytes -Sum).Sum
-        $totalFormatted = Format-FileSize -Bytes (if ($null -eq $totalSizeSum) { 0L } else { [long]$totalSizeSum })
+            $totalSizeSum   = ($scanResults | Measure-Object -Property SizeBytes -Sum).Sum
+            $totalBytes     = if ($null -eq $totalSizeSum) { 0L } else { [long]$totalSizeSum }
+            $totalFormatted = Format-FileSize -Bytes $totalBytes
 
-        $statusLabel.Text    = "Scan abgeschlossen. $($scanResults.Count) Eintraege | Gesamt: $totalFormatted"
-        $progressBar.Visible = $false
+            $statusLabel.Text = "Scan abgeschlossen. $($scanResults.Count) Eintraege | Gesamt: $totalFormatted"
+        }
+        catch {
+            $statusLabel.Text = "Fehler beim Scan: $($_.Exception.Message)"
+        }
+        finally {
+            $progressBar.Visible = $false
+        }
     })
 
     # ─────────────────────────────────────────────────────────────────────────
@@ -266,8 +328,18 @@
 
     # ─────────────────────────────────────────────────────────────────────────
     # Fenster zusammenbauen und anzeigen
+    #
+    # WICHTIG – Reihenfolge beim Hinzufuegen (WinForms Dock-Layout):
+    # Controls werden in umgekehrter Z-Order-Reihenfolge gedockt.
+    # Das Fill-Control (splitContainer) muss als ERSTES in die Collection,
+    # damit es zuletzt gedockt wird und den verbleibenden Bereich korrekt fuellt.
+    # Reihenfolge: Fill → Bottom (statusStrip) → Top (toolbarPanel)
     # ─────────────────────────────────────────────────────────────────────────
-    $mainForm.Controls.AddRange([System.Windows.Forms.Control[]]@($toolbarPanel, $splitContainer, $statusStrip))
+    $mainForm.Controls.AddRange([System.Windows.Forms.Control[]]@(
+        $splitContainer,   # Fill  – wird zuletzt gedockt (korrekte Restflaeche)
+        $statusStrip,      # Bottom
+        $toolbarPanel      # Top   – wird zuerst gedockt, kein Overlap
+    ))
     $mainForm.ShowDialog() | Out-Null
     $mainForm.Dispose()
 }
