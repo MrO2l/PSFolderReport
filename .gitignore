@@ -1,0 +1,16 @@
+# Temporäre Dateien
+*.tmp
+*.log
+
+# Pester-Ergebnisse
+Tests/TestResults/
+*.xml
+
+# VS Code
+.vscode/settings.json
+
+# Exportierte Reports (nicht versionieren)
+Reports/
+*.html
+*.xlsx
+*.csv

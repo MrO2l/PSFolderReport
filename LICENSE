@@ -1,0 +1,385 @@
+PROPRIETAERE SOFTWARELIZENZ
+PSFolderReport – Speicherplatzanalyse und Verwaltung fuer Windows
+==================================================================
+
+Copyright (c) 2026 PSFolderReport Developer. Alle Rechte vorbehalten.
+
+Diese Lizenz regelt die Nutzung, Vervielfaeltigung, Verbreitung und Bearbeitung
+der Software „PSFolderReport" (nachfolgend „Software") einschliesslich aller
+zugehoerigen Quelltexte, Dokumentationen, Konfigurationsdateien, Skripte,
+Grafiken und sonstiger Bestandteile dieses Repositories.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 1  URHEBERRECHTLICHER SCHUTZ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1.1  Die Software ist ein Computerprogramm im Sinne von § 69a Abs. 1 des
+     Urheberrechtsgesetzes (UrhG) und als persoenliche geistige Schoepfung
+     urheberrechtlich geschuetzt (§ 2 Abs. 1 Nr. 1 i.V.m. § 2 Abs. 2 UrhG).
+
+1.2  Saemtliche Verwertungsrechte an der Software — insbesondere das Recht zur
+     Vervielfaeltigung (§ 16 UrhG), zur Verbreitung (§ 17 UrhG), zur oeffentlichen
+     Zugaenglichmachung (§ 19a UrhG) sowie das Recht zur Bearbeitung und Umgestaltung
+     (§ 23 UrhG) — stehen ausschliesslich dem Urheber zu.
+
+1.3  Die Software kann darueber hinaus als Sammelwerk (§ 4 Abs. 1 UrhG) geschuetzt
+     sein, sofern ihre Bestandteile (Module, Skripte, Dokumentation) in Auswahl
+     oder Anordnung eine persoenliche geistige Schoepfung darstellen. Soweit die
+     Software Datenbankstrukturen enthaelt, die die Voraussetzungen des § 4 Abs. 2
+     UrhG erfuellen, gilt auch insoweit urheberrechtlicher Schutz.
+
+1.4  Rechte an verwandten Schutzleistungen, insbesondere das Sui-generis-
+     Datenbankherstellerrecht nach § 87a ff. UrhG, bleiben beim Rechteinhaber.
+
+Anwendbare Rechtsgrundlagen:
+- Urheberrechtsgesetz (UrhG) in der jeweils gueltigen Fassung
+- Richtlinie 2009/24/EG des Europaeischen Parlaments und des Rates ueber den
+  rechtlichen Schutz von Computerprogrammen (Software-Richtlinie)
+- Richtlinie 2001/29/EG zur Harmonisierung bestimmter Aspekte des Urheberrechts
+  und der verwandten Schutzrechte in der Informationsgesellschaft
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 2  GEWERBLICHE SCHUTZRECHTE UND MARKENRECHT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2.1  Die Bezeichnung „PSFolderReport" sowie alle damit verbundenen Logos,
+     Grafiken und Kennzeichen sind Geschaeftsbezeichnungen des Rechteinhabers
+     im Sinne von § 5 Abs. 2 des Markengesetzes (MarkenG) und geniessen
+     Schutz als geschaeftliche Bezeichnung nach § 15 MarkenG.
+
+2.2  Eine Nutzung der Bezeichnung „PSFolderReport" oder verwechslungsaehnlicher
+     Bezeichnungen fuer eigene Software, Dienstleistungen oder Produkte durch
+     Dritte ist ohne ausdrueckliche schriftliche Zustimmung des Rechteinhabers
+     untersagt (§ 15 Abs. 2 und 4 MarkenG).
+
+2.3  Der Rechteinhaber behaelt sich die Anmeldung der Bezeichnung als eingetragene
+     Marke beim Deutschen Patent- und Markenamt (DPMA) nach §§ 3, 4, 32 ff. MarkenG
+     sowie beim Amt der Europaeischen Union fuer geistiges Eigentum (EUIPO) vor.
+
+2.4  Die Nutzung der Bezeichnung in Berichterstattung, Rezensionen oder sachlichen
+     Verweisen (referenzierender Gebrauch) bleibt hiervon unberuehrt.
+
+Anwendbare Rechtsgrundlagen:
+- Markengesetz (MarkenG) in der jeweils gueltigen Fassung
+- Verordnung (EU) 2017/1001 ueber die Unionsmarke (UMV)
+- Pariser Verbandsuebereinkunft zum Schutz des gewerblichen Eigentums (PVUe)
+- Madrider Abkommen bzw. Protokoll zum Madrider Abkommen betreffend die
+  internationale Registrierung von Marken
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 3  EINGERAEUNTE NUTZUNGSRECHTE (BESCHRAENKTE LIZENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3.1  Der Rechteinhaber raeumt jeder natuerlichen oder juristischen Person
+     (nachfolgend „Nutzer") das folgende eingeschraenkte, nicht-exklusive,
+     nicht-uebertragbare und widerrufliche Nutzungsrecht ein:
+
+     a) Einsicht in den Quelltext zu Lern-, Referenz- und Pruefungszwecken
+        (Lektuerebefugnis);
+
+     b) Herunterladen und lokales Speichern einer Kopie des Quelltexts auf
+        einem eigenen Geraet zum persoenlichen, nichtkommerziellen Gebrauch;
+
+     c) Ausfuehren der Software auf eigenen Systemen fuer private, nicht
+        gewerbliche Zwecke ohne Weitergabe an Dritte.
+
+3.2  Die Einraeumung dieser Rechte erfolgt nach § 31 UrhG als einfaches,
+     raeumlich und sachlich beschraenktes Nutzungsrecht und begruendet
+     keinerlei Anspruch auf weitere Nutzungen.
+
+3.3  Jede ueber § 3.1 hinausgehende Nutzung bedarf der vorherigen ausdruecklichen
+     schriftlichen Genehmigung des Rechteinhabers.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 4  VERBOTENE HANDLUNGEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ohne ausdrueckliche, schriftliche Genehmigung des Rechteinhabers ist es Dritten
+insbesondere untersagt:
+
+4.1  Vervielfaeltigung & Verbreitung
+     Die Software ganz oder in Teilen zu vervielfaeltigen, zu kopieren,
+     zu verbreiten, oeffentlich zugaenglich zu machen oder in anderer Form
+     weiterzugeben (§§ 16, 17, 19a UrhG).
+
+4.2  Bearbeitung & Abgeleitete Werke
+     Die Software zu veraendern, zu uebersetzen, zu dekompilieren (soweit
+     nicht zwingend nach § 69e UrhG erlaubt), zu disassemblieren oder auf
+     sonstige Weise umzugestalten sowie davon abgeleitete Werke zu erstellen
+     (§ 23 UrhG).
+
+4.3  Kommerzielle Nutzung
+     Die Software oder Teile davon fuer gewerbliche oder kommerzielle Zwecke
+     zu nutzen, in eigene Produkte oder Dienstleistungen einzubinden, zu
+     vermieten, zu verleihen, zu lizenzieren oder anderweitig zu vermarkten —
+     einschliesslich des Einsatzes als SaaS-Dienst, in Unternehmensumgebungen
+     oder als Bestandteil entgeltlicher Angebote.
+
+4.4  Weiter- und Unterlizenzierung
+     Nutzungsrechte an der Software — gleich ob entgeltlich oder unentgeltlich —
+     an Dritte weiterzugeben oder Unterlizenzen einzuraeumen (§ 34 Abs. 1 UrhG).
+
+4.5  Entfernung von Schutzvermerken
+     Urheber-, Marken- oder sonstige Schutzrechtsvermerke aus der Software
+     zu entfernen, zu veraendern oder zu verdecken (§§ 95c, 95d UrhG;
+     Art. 7 Richtlinie 2001/29/EG).
+
+4.6  Reverse Engineering
+     Die Software zu dekompilieren oder zu disassemblieren, soweit dies nicht
+     nach § 69e UrhG zwingend zur Herstellung der Interoperabilitaet mit einem
+     unabhaengig geschaffenen Computerprogramm erforderlich ist.
+
+4.7  Schutzmassnamen-Umgehung
+     Technische Schutzmassnahmen der Software zu umgehen oder zu deaktivieren
+     (§ 95a UrhG; Art. 6 Richtlinie 2001/29/EG).
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 5  VORBEHALT DER KOMMERZIELLEN VERWERTUNG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5.1  Der Rechteinhaber behaelt sich ausdruecklich alle kommerziellen
+     Verwertungsrechte an der Software vor, insbesondere:
+
+     a) die entgeltliche Lizenzierung an Unternehmen und Einzelpersonen;
+     b) die Einbindung in kommerzielle Produkte oder Bundles;
+     c) den Vertrieb ueber Softwaremarktplaetze (z.B. Microsoft Store,
+        PowerShell Gallery, NuGet);
+     d) die Erstellung und den Vertrieb von Enterprise- oder
+        Professional-Editionen mit erweitertem Funktionsumfang;
+     e) das Anbieten von Support-, Wartungs- und Beratungsleistungen
+        rund um die Software;
+     f) die Uebertragung saemtlicher Rechte oder von Teilrechten an Dritte
+        nach § 34 UrhG.
+
+5.2  Dieses Recht zur kommerziellen Verwertung steht ausschliesslich dem
+     Rechteinhaber zu. Dritte koennen kommerzielle Nutzungsrechte nur durch
+     gesonderten schriftlichen Lizenzvertrag mit dem Rechteinhaber erwerben.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 6  GESETZLICHE SCHRANKEN DES URHEBERRECHTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6.1  Unberuehrt von den Verboten dieser Lizenz bleiben die gesetzlich zwingend
+     eingeraeumten Nutzungen, insbesondere:
+
+     a) die Herstellung einer einzigen Sicherungskopie nach § 69d Abs. 2 UrhG,
+        sofern dies fuer eine gesicherte Nutzung notwendig ist;
+
+     b) das Beobachten, Untersuchen und Testen der Funktionsweise des Programms
+        nach § 69d Abs. 3 UrhG beim bestimmungsgemaessen Gebrauch;
+
+     c) die Dekompilierung zum Zwecke der Interoperabilitaet nach § 69e UrhG
+        unter den dort genannten Voraussetzungen;
+
+     d) Zitate nach § 51 UrhG im Rahmen wissenschaftlicher, kritischer oder
+        rezensierender Auseinandersetzung mit der Software.
+
+6.2  Diese Schrankenbestimmungen koennen durch vertragliche Regelungen nicht
+     eingeschraenkt werden, soweit dies nach geltendem Recht zwingend gilt.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 7  GEWAEHRLEISTUNGSAUSSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+7.1  Die Software wird im Rahmen der nach § 3 eingeraeumt Nutzungsrechte
+     „wie besehen" (as-is) und ohne jegliche Gewaehrleistung bereitgestellt.
+
+7.2  Soweit dies gesetzlich zulaessig ist, schliesst der Rechteinhaber jede
+     ausdrueckliche oder stillschweigende Gewaehrleistung aus, insbesondere
+     Gewaehrleistungen hinsichtlich:
+
+     a) der Tauglichkeit fuer einen bestimmten Zweck (§ 434 BGB analog);
+     b) der Mangelfreiheit im Sinne von § 434 BGB;
+     c) der Nichtverletzung von Rechten Dritter;
+     d) der Fehlerfreiheit, Zuverlaessigkeit oder Verfuegbarkeit.
+
+7.3  Der Gewaehrleistungsausschluss gilt nicht fuer Ansprueche, die auf
+     Vorsatz oder grober Fahrlaessigkeit des Rechteinhabers beruhen
+     (§ 276 Abs. 3 BGB), sowie nicht fuer Ansprueche nach dem
+     Produkthaftungsgesetz (ProdHaftG) oder aus der Verletzung des Lebens,
+     des Koerpers oder der Gesundheit.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 8  HAFTUNGSBESCHRAENKUNG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+8.1  Der Rechteinhaber haftet fuer Schaeden, die durch die Nutzung oder
+     Nichtnutzbarkeit der Software entstehen, nur bei Vorsatz und grober
+     Fahrlaessigkeit (§ 276 BGB).
+
+8.2  Fuer leichte Fahrlaessigkeit haftet der Rechteinhaber nur bei Verletzung
+     einer wesentlichen Vertragspflicht (Kardinalpflicht) und lediglich in
+     Hoehe des vorhersehbaren, vertragstypischen Schadens.
+
+8.3  Die vorstehende Haftungsbeschraenkung gilt nicht:
+     a) bei Schaeden aus der Verletzung des Lebens, des Koerpers oder der
+        Gesundheit (§ 823 Abs. 1 BGB);
+     b) bei arglistig verschwiegenen Maengeln;
+     c) bei Anspruechen nach dem Produkthaftungsgesetz (ProdHaftG).
+
+8.4  Der Nutzer traegt saemtliche Risiken, die sich aus der Nutzung der
+     Software ergeben, einschliesslich Datenverlust, Systemausfaellen oder
+     Schaeden an der IT-Infrastruktur (§ 254 BGB: Mitverschulden).
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 9  VERLETZUNG UND RECHTSFOLGEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+9.1  Jede unerlaubte Nutzung, Vervielfaeltigung oder Verbreitung der Software
+     stellt eine Verletzung des Urheberrechts dar und kann sowohl zivil-
+     als auch strafrechtliche Folgen haben.
+
+9.2  Zivilrechtliche Ansprueche des Rechteinhabers umfassen insbesondere:
+
+     a) Unterlassungs- und Beseitigungsanspruch (§ 97 Abs. 1 UrhG,
+        § 1004 BGB analog);
+     b) Schadensersatzanspruch nach Wahl des Rechteinhabers auf Basis des
+        entgangenen Gewinns, der Lizenzanalogie oder der Herausgabe des
+        Verletzergewinns (§ 97 Abs. 2 UrhG);
+     c) Auskunfts- und Rechnungslegungsanspruch (§ 101 UrhG);
+     d) Vernichtungs- und Rueckrufanspruch (§ 98 UrhG);
+     e) Anspruch auf Zahlung von Abmahnkosten (§ 97a UrhG).
+
+9.3  Strafrechtliche Verantwortlichkeit ergibt sich insbesondere aus:
+
+     a) § 106 UrhG (Unerlaubte Verwertung urheberrechtlich geschuetzter Werke,
+        Freiheitsstrafe bis zu 3 Jahren oder Geldstrafe);
+     b) § 108b UrhG (Unerlaubte Eingriffe in technische Schutzmassnahmen);
+     c) §§ 263, 263a StGB (Betrug bzw. Computerbetrug) bei gewerbsmaessiger
+        Nutzung;
+     d) §§ 23, 24 GescGehG (Verrat von Geschaeftsgeheimnissen und
+        unbefugte Nutzung von Geschaeftsgeheimnissen).
+
+9.4  Bei Markenverletzungen gelten zusaetzlich die Ansprueche nach
+     §§ 14, 15 i.V.m. §§ 18, 19 MarkenG.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 10  LIZENZERTEILUNG UND ANFRAGEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+10.1 Anfragen zur Erteilung von Nutzungsrechten, die ueber § 3 hinausgehen —
+     insbesondere fuer kommerzielle Nutzung, Unternehmenseinsatz, Integration
+     in eigene Produkte oder oeffentliche Praesentationen — sind an den
+     Rechteinhaber zu richten.
+
+10.2 Lizenzvereinbarungen werden ausschliesslich schriftlich (einschliesslich
+     E-Mail) getroffen. Muendliche Absprachen oder konkludentes Handeln
+     begruenden kein Nutzungsrecht.
+
+10.3 Kontakt: Anfragen sind ueber das GitHub-Repository
+     (https://github.com) mittels Issue oder direkter Nachricht zu stellen.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 11  DRITTKOMPONENTEN UND ABHAENGIGKEITEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+11.1 Die Software kann Laufzeitabhaengigkeiten von Drittkomponenten aufweisen
+     (z.B. PowerShell-Standardmodule, .NET-Laufzeitbibliotheken, JavaScript-
+     Bibliotheken). Diese Komponenten unterliegen ihren jeweiligen eigenen
+     Lizenzbedingungen, welche durch diese Lizenz nicht veraendert werden.
+
+11.2 Eine Liste der verwendeten Drittkomponenten und ihrer Lizenzen ist
+     dem Quellcode-Repository zu entnehmen. Fuer die Einhaltung der jeweiligen
+     Drittlizenzen ist der Nutzer selbst verantwortlich.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 12  ANWENDBARES RECHT UND GERICHTSSTAND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+12.1 Diese Lizenz und saemtliche sich daraus ergebenden Rechtsbeziehungen
+     unterliegen ausschliesslich dem Recht der Bundesrepublik Deutschland
+     unter Ausschluss des UN-Kaufrechts (CISG) und kollisionsrechtlicher
+     Verweisungen.
+
+12.2 Ausschliesslicher Gerichtsstand fuer saemtliche Streitigkeiten aus
+     oder im Zusammenhang mit dieser Lizenz ist, soweit gesetzlich zulaessig,
+     der Wohnsitz des Rechteinhabers in Deutschland.
+
+12.3 Fuer Verbraucher im Sinne von § 13 BGB gilt der gesetzliche Gerichtsstand.
+
+12.4 Auf Anforderung kann der Text dieser Lizenz in anderen Sprachen zur
+     Verfuegung gestellt werden. Im Zweifelsfall ist die deutschsprachige
+     Fassung massgeblich.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+§ 13  SALVATORISCHE KLAUSEL UND AENDERUNGSVORBEHALT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+13.1 Sollten einzelne Bestimmungen dieser Lizenz ganz oder teilweise
+     unwirksam oder undurchfuehrbar sein oder werden, beruehrt dies die
+     Wirksamkeit der uebrigen Bestimmungen nicht. Die unwirksame oder
+     undurchfuehrbare Bestimmung gilt als durch eine wirksame Bestimmung
+     ersetzt, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung
+     am naechsten kommt (§ 306 BGB analog).
+
+13.2 Luecken dieser Lizenz sind durch ergaenzende Vertragsauslegung zu
+     fuellen; massgebend ist der Wille der Parteien sowie der Zweck
+     dieser Lizenz zum Zeitpunkt ihres Abschlusses (§§ 133, 157 BGB).
+
+13.3 Der Rechteinhaber behaelt sich das Recht vor, diese Lizenz fuer
+     zukuenftige Versionen der Software zu aendern. Die jeweils zum
+     Zeitpunkt des Downloads oder der Nutzung gueltige Lizenzversion
+     findet Anwendung.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NORMVERZEICHNIS (REFERENZIERTE RECHTSQUELLEN)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Deutsches Recht:
+  UrhG     Urheberrechtsgesetz (Gesetz ueber Urheberrecht und verwandte
+           Schutzrechte) i.d.F. vom 9. September 1965 (BGBl. I S. 1273),
+           zuletzt geaendert
+  MarkenG  Markengesetz vom 25. Oktober 1994 (BGBl. I S. 3082), zuletzt geaendert
+  BGB      Buergerliches Gesetzbuch i.d.F. der Bek. vom 2. Januar 2002
+           (BGBl. I S. 42, 2909; 2003 I S. 738), zuletzt geaendert
+  StGB     Strafgesetzbuch i.d.F. der Bek. vom 13. November 1998
+           (BGBl. I S. 3322), zuletzt geaendert
+  UWG      Gesetz gegen den unlauteren Wettbewerb i.d.F. vom 3. Juli 2004
+           (BGBl. I S. 1414), zuletzt geaendert
+  ProdHaftG Produkthaftungsgesetz vom 15. Dezember 1989 (BGBl. I S. 2198),
+           zuletzt geaendert
+  GescGehG Gesetz zum Schutz von Geschaeftsgeheimnissen vom 18. April 2019
+           (BGBl. I S. 466)
+
+Europarecht:
+  RL 2009/24/EG   Richtlinie ueber den rechtlichen Schutz von Computerprogrammen
+                  (Software-Richtlinie), ABl. EU L 111/16
+  RL 2001/29/EG   Richtlinie zur Harmonisierung des Urheberrechts in der
+                  Informationsgesellschaft (Infosoc-Richtlinie), ABl. EU L 167/10
+  VO (EU) 2017/1001  Unionsmarkenverordnung (UMV), ABl. EU L 154/1
+  RL (EU) 2016/943 Richtlinie ueber den Schutz vertraulichen Know-hows und
+                   vertraulicher Geschaeftsinformationen (Geschaeftsgeheimnis-
+                   Richtlinie), ABl. EU L 157/1
+
+Voelkerrecht:
+  RBUe    Revidierte Berner Uebereinkunft zum Schutz von Werken der
+          Literatur und Kunst (1971)
+  PVUe    Pariser Verbandsuebereinkunft zum Schutz des gewerblichen Eigentums
+          (1883, Stockholm-Fassung 1967)
+  TRIPS   Uebereinkommen ueber handelsbezogene Aspekte der Rechte des
+          geistigen Eigentums (1994, Anhang 1C zum WTO-Uebereinkommen)
+  WCT     WIPO-Urheberrechtsvertrag (1996)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HINWEIS: Diese Lizenz wurde mit groesster Sorgfalt erstellt, ersetzt jedoch
+keine individuelle Rechtsberatung durch einen zugelassenen Rechtsanwalt.
+Fuer verbindliche Rechtsauskunft wenden Sie sich bitte an einen in Deutschland
+zugelassenen Rechtsanwalt mit Fachgebiet Urheber- und/oder IT-Recht.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Copyright (c) 2026 PSFolderReport Developer. All rights reserved.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
