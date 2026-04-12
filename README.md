@@ -41,7 +41,7 @@ Scannt Verzeichnisse rekursiv, berechnet Ordnergroessen, visualisiert Ergebnisse
 > Der **Elternordner des Repositories** (nicht der Modul-Unterordner selbst) muss im `PSModulePath` stehen.
 >
 > ```
-> D:\Nextcloud\03_Ai\PSFolderReport\      <-- Elternordner (dieser Pfad kommt in PSModulePath)
+> C:\Repos\PSFolderReport\                <-- Elternordner (dieser Pfad kommt in PSModulePath)
 >     PSFolderReport\                     <-- Modul-Ordner (Name muss dem Modul entsprechen)
 >         PSFolderReport.psd1
 >         PSFolderReport.psm1
@@ -57,7 +57,7 @@ Der einfachste Weg: Modul direkt ueber den vollstaendigen `.psd1`-Pfad importier
 
 ```powershell
 # Einmalig in der aktuellen Session:
-Import-Module "D:\Nextcloud\03_Ai\PSFolderReport\PSFolderReport\PSFolderReport.psd1" -Force
+Import-Module "C:\Repos\PSFolderReport\PSFolderReport\PSFolderReport.psd1" -Force
 
 # Pruefen ob das richtige Modul geladen ist (Version muss 1.0.0 sein):
 Get-Module PSFolderReport
@@ -76,7 +76,7 @@ Script      1.0.0    PSFolderReport  {Export-FsReport, Get-FolderSize, Show-Fold
 >
 > ```powershell
 > Remove-Module PSFolderReport -Force -ErrorAction SilentlyContinue
-> Import-Module "D:\Nextcloud\03_Ai\PSFolderReport\PSFolderReport\PSFolderReport.psd1" -Force
+> Import-Module "C:\Repos\PSFolderReport\PSFolderReport\PSFolderReport.psd1" -Force
 > ```
 
 ---
@@ -94,7 +94,7 @@ if (-not (Test-Path -Path $PROFILE)) {
 
 # Schritt 2: Elternordner des Repositories eintragen
 # Passe den Pfad auf deinen tatsaechlichen Speicherort an:
-$repoParent = "D:\Nextcloud\03_Ai\PSFolderReport"
+$repoParent = "C:\Repos\PSFolderReport"
 
 $profileEntry = "`nif (`$repoParent -notin (`$env:PSModulePath -split ';')) { `$env:PSModulePath += ';$repoParent' }"
 Add-Content -Path $PROFILE -Value $profileEntry
@@ -126,7 +126,7 @@ $destination = Join-Path -Path ([Environment]::GetFolderPath('MyDocuments')) `
 #                          -ChildPath 'WindowsPowerShell\Modules\PSFolderReport'
 
 # Modul-Unterordner (nicht das Repository-Root) kopieren:
-Copy-Item -Path "D:\Nextcloud\03_Ai\PSFolderReport\PSFolderReport" -Destination $destination -Recurse -Force
+Copy-Item -Path "C:\Repos\PSFolderReport\PSFolderReport" -Destination $destination -Recurse -Force
 
 # Danach direkt importierbar:
 Import-Module PSFolderReport
