@@ -1,5 +1,8 @@
 # PSFolderReport
 
+[![Tests](https://github.com/MrO2l/PSFolderReport/actions/workflows/tests.yml/badge.svg)](https://github.com/MrO2l/PSFolderReport/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 PowerShell-Modul zur Speicherplatzanalyse unter Windows – eine CLI- und GUI-Alternative zu TreeSize.
 
 Scannt Verzeichnisse rekursiv, berechnet Ordnergroessen, visualisiert Ergebnisse in der Konsole und exportiert Reports als CSV oder HTML. Eine WinForms-GUI steht ebenfalls zur Verfuegung.
@@ -484,4 +487,4 @@ Aktueller Stand: **42 Tests, alle gruen. 0 PSScriptAnalyzer-Warnungen.**
 
 ## Lizenz
 
-(c) PSFolderReport Developer. All rights reserved.
+Veroeffentlicht unter der [MIT-Lizenz](LICENSE). (c) 2026 Andreas Ollesch
