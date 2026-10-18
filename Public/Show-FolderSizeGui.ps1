@@ -1,4 +1,4 @@
-function Show-FolderSizeGui {
+﻿function Show-FolderSizeGui {
 <#
 .SYNOPSIS
     Oeffnet die grafische Oberflaeche von PSFolderReport.

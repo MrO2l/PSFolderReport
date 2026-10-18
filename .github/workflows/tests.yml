@@ -1,0 +1,58 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Pester & PSScriptAnalyzer
+    # Windows runner required: module uses WinForms and Windows path semantics
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install test dependencies
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module -Name Pester -MinimumVersion 5.0 -Scope CurrentUser -Force -SkipPublisherCheck
+          Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force
+          Get-Module -Name Pester, PSScriptAnalyzer -ListAvailable |
+              Select-Object -Property Name, Version | Format-Table -AutoSize
+
+      - name: Run PSScriptAnalyzer
+        run: |
+          $findings = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning, Error
+          if ($findings) {
+              $findings | Format-Table -Property Severity, RuleName, ScriptName, Line, Message -AutoSize -Wrap
+              throw "PSScriptAnalyzer reported $(@($findings).Count) finding(s)."
+          }
+          Write-Output 'PSScriptAnalyzer: no findings.'
+
+      - name: Run Pester tests
+        run: |
+          $resultsDir = Join-Path -Path $PWD -ChildPath 'Tests/TestResults'
+          New-Item -Path $resultsDir -ItemType Directory -Force | Out-Null
+
+          # Reuse the project's config, but make the run fail the job on test failures
+          $config = & ./Tests/pester.config.ps1
+          $config.Run.Exit         = $true
+          $config.Output.Verbosity = 'Normal'
+
+          Invoke-Pester -Configuration $config
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: Tests/TestResults/
+          if-no-files-found: ignore
